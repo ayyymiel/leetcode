@@ -1,24 +1,23 @@
 class Solution:
-    def __init__(self):
-        self.hashMap = {}
-        self.totalsList = []
-        self.isInTotalsList = []
-        self.tripletsCounter = 0
     def arithmeticTriplets(self, nums: int, diff: int) -> int:
+        checker1 = 0
+        checker2 = 0
+        validNums = []
+
         for i in range(len(nums)):
-            self.hashMap[nums[i]] = i
-            totalFromDiff = nums[i] + diff
-            self.totalsList.append(totalFromDiff)
+            i = (i+1)*-1
+            checker1 = nums[i] - diff
+            if checker1 in nums:
+                checker2 = checker1 - diff
+                if checker2 in nums:
+                    validNums.append(nums[i])   # add the starting number
+                    validNums.append(checker1)  # add the second number
+                    validNums.append(checker2)  # add the last number to make the triplet
 
-        for x in range(len(self.totalsList)):
-           if self.totalsList[x] in self.hashMap.keys():
-            print(self.totalsList)
-            self.isInTotalsList.append(self.totalsList[x])
+        tripletsCount = len(validNums) / 3
+        return int(tripletsCount)
 
-        print(self.isInTotalsList)
-        return len(self.isInTotalsList) - 1
-    
 sol = Solution()
-print(sol.arithmeticTriplets([4,5,6,7,8,9], 2))
+sol.arithmeticTriplets([0,1,4,6,7,10], 3)
 
-# nums = [0,1,4,6,7,10], diff = 3
+# [0,1,4,6,7,10], diff = 3
