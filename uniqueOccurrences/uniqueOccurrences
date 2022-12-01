@@ -1,0 +1,17 @@
+from collections import Counter
+
+class Solution:
+    def uniqueOccurrences(self, arr: list[int]) -> bool:
+        hashMap = Counter(arr)
+        hashMap = dict(hashMap)
+        listOfValues = list(hashMap.values())
+        for i in range(len(listOfValues)):
+            currentValue = listOfValues.pop(i)
+            if currentValue in listOfValues:
+                return False
+            else:
+                listOfValues.insert(i, currentValue)
+        return True
+
+sol = Solution()
+print(sol.uniqueOccurrences([1,2,2,1,1,3]))
