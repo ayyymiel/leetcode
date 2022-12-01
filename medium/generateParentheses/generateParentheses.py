@@ -1,6 +1,6 @@
-import random
+# NOT WORKING YET
 
-# WIP NOT USABLE
+import random
 
 class Solution:
 
