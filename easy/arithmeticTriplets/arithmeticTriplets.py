@@ -1,5 +1,3 @@
-# NOT WORKING YET
-
 class Solution:
     def arithmeticTriplets(self, nums: int, diff: int) -> int:
         checker1 = 0
